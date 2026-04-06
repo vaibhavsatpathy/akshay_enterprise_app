@@ -1,0 +1,38 @@
+services:
+  accuracy_packaging_server_core:
+    build: core/.
+    image: accuracy_packaging/core:latest
+    container_name: accuracy_packaging_core
+    environment:
+      - secret='b9c8e5acc65e88f817ec58d94b9664cba1385a77a1a63c1e8fa8cd5e5c5852c2'
+      - algorithm=HS256
+      - password=P@ssw0rd
+      - db_url=postgresql://postgres:postgres@accuracy_packaging_db:5432/postgres
+    volumes:
+      - ./core:/app
+      - ./core/logs:/app/logs
+    ports:
+      - 8080:8080
+    depends_on:
+      - accuracy_packaging_db
+    networks:
+      - accuracy_packaging_server
+    restart: "on-failure"
+
+  accuracy_packaging_db:
+    image: postgres:15
+    container_name: base-postgres-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./core/db/postgres/postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - accuracy_packaging_server
+    restart: "on-failure"
+
+networks:
+  accuracy_packaging_server:
+    name: accuracy_packaging_server-network

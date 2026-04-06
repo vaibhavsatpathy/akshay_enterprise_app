@@ -205,3 +205,20 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ── Project-specific ──────────────────────────────────────────────────────────
+
+# Credentials & secrets
+backend/core/data/
+backend/core/env_var
+*service_account*.json
+*service-account*.json
+# GCP service account key files (pattern: name-hexid.json)
+*-[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]*.json
+
+# Database volume data
+backend/core/db/postgres/postgres-data/
+
+# Local files
+raw_files/*
+brd_files/*
