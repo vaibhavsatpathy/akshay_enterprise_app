@@ -92,20 +92,20 @@ layer_types_in_db = (
     fetch_data(MASTER_DATA_CONFIG["Layer Types"]["endpoint"] + "/list_all")[1] or []
 )
 layer_types_dict = {
-    lt["layer_type_name"]: lt["layer_type_id"] for lt in layer_types_in_db
+    lt["layer_type_value"]: lt["layer_type_id"] for lt in layer_types_in_db
 }
 
 flute_types_in_db = (
     fetch_data(MASTER_DATA_CONFIG["Flute Types"]["endpoint"] + "/list_all")[1] or []
 )
 flute_types_dict = {
-    ft["flute_type_name"]: ft["flute_type_id"] for ft in flute_types_in_db
+    ft["flute_type_value"]: ft["flute_type_id"] for ft in flute_types_in_db
 }
 
 gum_types_in_db = (
     fetch_data(MASTER_DATA_CONFIG["Gum Types"]["endpoint"] + "/list_all")[1] or []
 )
-gum_types_dict = {gt["gum_type_name"]: gt["gum_type_id"] for gt in gum_types_in_db}
+gum_types_dict = {gt["gum_type_value"]: gt["gum_type_id"] for gt in gum_types_in_db}
 
 pin_material_in_db = fetch_data("/corrugation/stitching-pin-material/list_all")[1] or []
 pin_material_dict = {m["material_value"]: m["material_id"] for m in pin_material_in_db}

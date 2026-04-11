@@ -283,10 +283,10 @@ MASTER_DATA_CONFIG = {
     "Flute Types": {
         "endpoint": "/corrugation/flute-types",
         "id_field": "flute_type_id",
-        "name_field": "flute_type_name",
+        "name_field": "flute_type_value",
         "fields": [
             {
-                "name": "flute_type_name",
+                "name": "flute_type_value",
                 "label": "Flute Type Name",
                 "type": "text",
                 "required": True,
@@ -296,10 +296,10 @@ MASTER_DATA_CONFIG = {
     "Layer Types": {
         "endpoint": "/corrugation/layer-types",
         "id_field": "layer_type_id",
-        "name_field": "layer_type_name",
+        "name_field": "layer_type_value",
         "fields": [
             {
-                "name": "layer_type_name",
+                "name": "layer_type_value",
                 "label": "Layer Type Name",
                 "type": "text",
                 "required": True,
@@ -309,10 +309,10 @@ MASTER_DATA_CONFIG = {
     "Gum Types": {
         "endpoint": "/corrugation/gum-types",
         "id_field": "gum_type_id",
-        "name_field": "gum_type_name",
+        "name_field": "gum_type_value",
         "fields": [
             {
-                "name": "gum_type_name",
+                "name": "gum_type_value",
                 "label": "Gum Type Name",
                 "type": "text",
                 "required": True,
