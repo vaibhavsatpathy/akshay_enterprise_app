@@ -1,7 +1,6 @@
 # Accuracy Packaging Management System
 
 Web application for orchestrating daily operations and planning for the corrugation industry. Built with a **FastAPI** backend, **PostgreSQL** database, and a **Streamlit** frontend.
-
 ---
 
 ## Architecture
