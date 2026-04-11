@@ -33,26 +33,32 @@ printing_types = {
         "endpoint": "/corrugation/block-print-colors",
         "description": "Manage color configurations for block printing",
         "fields": ["color_name", "description"],
+        "id_param": "color_id",
     },
     "Block Printing Products": {
         "endpoint": "/corrugation/product-block-printing",
         "description": "Track block printing jobs and products",
+        "id_param": "print_id",
     },
     "Screen Printing": {
         "endpoint": "/corrugation/screen-printing",
         "description": "Manage screen printing operations",
+        "id_param": "print_id",
     },
     "Offset Plates": {
         "endpoint": "/corrugation/offset-plate",
         "description": "Track offset printing plates",
+        "id_param": "plate_id",
     },
     "Offset Printing Paper": {
         "endpoint": "/corrugation/printing-paper-offset",
         "description": "Manage offset printing paper inventory",
+        "id_param": "print_id",
     },
     "Block/Screen Printing Paper": {
         "endpoint": "/corrugation/printing-paper-block-screen",
         "description": "Manage block and screen printing paper",
+        "id_param": "print_id",
     },
 }
 
@@ -299,7 +305,11 @@ if selected_type:
             col1, col2 = st.columns([1, 3])
             with col1:
                 if st.button("🗑️ Delete", use_container_width=True):
-                    success = delete_record(f"{config['endpoint']}/delete", record_id)
+                    success = delete_record(
+                        f"{config['endpoint']}/delete",
+                        record_id,
+                        id_param=config.get("id_param", "id"),
+                    )
                     if success:
                         st.success(f"✅ Record {record_id} deleted successfully!")
                         if f"{selected_type}_data" in st.session_state:

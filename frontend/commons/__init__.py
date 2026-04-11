@@ -172,42 +172,62 @@ inventory_types = {
     "Main Inventory": {
         "endpoint": "/corrugation/inventory",
         "description": "Manage main inventory entries with vendor and transporter details",
+        "id_field": "inventory_id",
+        "id_param": "inventory_id",
     },
     "Product Reels": {
         "endpoint": "/corrugation/product-reels",
         "description": "Track product reels with GSM, BF, and location",
+        "id_field": "reel_id",
+        "id_param": "reel_id",
     },
     "Paper Bundles": {
         "endpoint": "/corrugation/product-paper-bundles",
         "description": "Manage paper bundles inventory",
+        "id_field": "bundle_id",
+        "id_param": "bundle_id",
     },
     "Product Papers": {
         "endpoint": "/corrugation/product-papers",
         "description": "Track individual paper products",
+        "id_field": "gross_id",
+        "id_param": "gross_id",
     },
     "Product Flutes": {
         "endpoint": "/corrugation/product-flutes",
         "description": "Manage flute products",
+        "id_field": "flute_id",
+        "id_param": "flute_id",
     },
     "Ply Sheets": {
         "endpoint": "/corrugation/product-ply-sheets",
         "description": "Track ply sheet inventory",
+        "id_field": "sheet_id",
+        "id_param": "sheet_id",
     },
     "Gum": {
         "endpoint": "/corrugation/product-gum",
         "description": "Manage gum inventory",
+        "id_field": "gum_id",
+        "id_param": "gum_id",
     },
     "Stitching Pins": {
         "endpoint": "/corrugation/product-stitching-pin",
         "description": "Track stitching pin inventory",
+        "id_field": "pin_id",
+        "id_param": "pin_id",
     },
     "Spare Parts": {
         "endpoint": "/corrugation/product-spare-parts",
         "description": "Manage spare parts inventory",
+        "id_field": "part_id",
+        "id_param": "part_id",
     },
     "Miscellaneous": {
         "endpoint": "/corrugation/miscellaneous",
         "description": "Track miscellaneous items",
+        "id_field": "misc_id",
+        "id_param": "misc_id",
     },
 }
 
@@ -250,10 +270,10 @@ MASTER_DATA_CONFIG = {
     "Product Types": {
         "endpoint": "/corrugation/product-types",
         "id_field": "product_type_id",
-        "name_field": "product_type_name",
+        "name_field": "product_type_value",
         "fields": [
             {
-                "name": "product_type_name",
+                "name": "product_type_value",
                 "label": "Product Type Name",
                 "type": "text",
                 "required": True,
@@ -432,10 +452,10 @@ MASTER_DATA_CONFIG = {
     "GST Config": {
         "endpoint": "/corrugation/gst-config",
         "id_field": "gst_config_id",
-        "name_field": "gst_percentage",
+        "name_field": "gst_value",
         "fields": [
             {
-                "name": "gst_percentage",
+                "name": "gst_value",
                 "label": "GST Percentage",
                 "type": "number",
                 "required": True,

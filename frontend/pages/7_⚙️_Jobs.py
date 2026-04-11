@@ -358,7 +358,9 @@ if selected_job:
                     use_container_width=True,
                     key=f"delete_btn_{selected_job}",
                 ):
-                    success = delete_record(f"{config['endpoint']}/delete", job_id)
+                    success = delete_record(
+                        f"{config['endpoint']}/delete", job_id, id_param="job_id"
+                    )
                     if success:
                         st.success(f"✅ Job {job_id} deleted successfully!")
                         if f"{selected_job}_jobs" in st.session_state:

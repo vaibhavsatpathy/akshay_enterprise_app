@@ -11,9 +11,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# API Base URL
-API_BASE_URL = "http://localhost:8080"
-
 # Session state initialization
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False

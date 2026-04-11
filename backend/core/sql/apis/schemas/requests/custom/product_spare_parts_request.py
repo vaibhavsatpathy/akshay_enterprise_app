@@ -5,8 +5,13 @@ from datetime import datetime
 
 class ProductSparePartCreate(BaseModel):
     part_name: Optional[str] = None
-    quantity: Optional[int] = None
     unit_type_id: Optional[int] = None
+    number_of_units: Optional[int] = None
+    rate_per_unit: Optional[float] = None
+    reference_machine: Optional[str] = None
+    total_base_cost: Optional[float] = None
+    total_gst_cost: Optional[float] = None
+    total_cost: Optional[float] = None
     location_id: Optional[int] = None
     inventory_id: Optional[int] = None
 
@@ -14,8 +19,13 @@ class ProductSparePartCreate(BaseModel):
 class ProductSparePartUpdate(BaseModel):
     part_id: int
     part_name: Optional[str] = None
-    quantity: Optional[int] = None
     unit_type_id: Optional[int] = None
+    number_of_units: Optional[int] = None
+    rate_per_unit: Optional[float] = None
+    reference_machine: Optional[str] = None
+    total_base_cost: Optional[float] = None
+    total_gst_cost: Optional[float] = None
+    total_cost: Optional[float] = None
     location_id: Optional[int] = None
     inventory_id: Optional[int] = None
 
@@ -23,8 +33,13 @@ class ProductSparePartUpdate(BaseModel):
 class ProductSparePartResponse(BaseModel):
     part_id: int
     part_name: Optional[str] = None
-    quantity: Optional[int] = None
     unit_type_id: Optional[int] = None
+    number_of_units: Optional[int] = None
+    rate_per_unit: Optional[float] = None
+    reference_machine: Optional[str] = None
+    total_base_cost: Optional[float] = None
+    total_gst_cost: Optional[float] = None
+    total_cost: Optional[float] = None
     location_id: Optional[int] = None
     inventory_id: Optional[int] = None
     created_at: Optional[datetime] = None

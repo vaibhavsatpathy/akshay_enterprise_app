@@ -102,20 +102,22 @@ def update_record(
         return False, {"detail": str(e)}
 
 
-def delete_record(endpoint: str, record_id: int) -> bool:
+def delete_record(endpoint: str, record_id: int, id_param: str = "id") -> bool:
     """
     Delete a record via API
 
     Args:
         endpoint (str): API endpoint path (e.g., '/corrugation/inventory/delete')
         record_id (int): ID of the record to delete
+        id_param (str): Query parameter name used by the backend (e.g., 'order_id', 'job_id')
 
     Returns:
         bool: True if delete succeeded, False otherwise
     """
     try:
         response = requests.delete(
-            f"{API_BASE_URL}{endpoint}/{record_id}", headers=get_auth_headers()
+            f"{API_BASE_URL}{endpoint}?{id_param}={record_id}",
+            headers=get_auth_headers(),
         )
         return response.status_code == 200
     except Exception as e:

@@ -26,6 +26,12 @@ The backend and database run together via Docker Compose. The frontend connects 
 - Python 3.8+
 - pip
 
+### Windows (additional requirements)
+- [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/) — enables both Docker and Docker Compose v2
+- [Git for Windows](https://git-scm.com/download/win) — provides Git Bash, which is required to run the `.sh` helper scripts in `backend/`
+- Python from [python.org](https://www.python.org/downloads/) or via `winget install Python.Python.3`
+- Run all shell commands in **Git Bash** or **WSL 2** (not PowerShell or CMD), or use the equivalent PowerShell commands in the table below
+
 ---
 
 ## Setup & Running
@@ -89,6 +95,13 @@ Key variables in `docker-compose.yml` that you may want to override:
 #### Install dependencies
 
 ```bash
+# macOS / Linux
+cd frontend
+pip install streamlit pandas requests
+```
+
+```powershell
+# Windows (PowerShell or Command Prompt)
 cd frontend
 pip install streamlit pandas requests
 ```
@@ -96,9 +109,16 @@ pip install streamlit pandas requests
 Or if you prefer a virtual environment:
 
 ```bash
+# macOS / Linux
 python3 -m venv .venv
-source .venv/bin/activate        # macOS / Linux
-# .venv\Scripts\activate         # Windows
+source .venv/bin/activate
+pip install streamlit pandas requests
+```
+
+```powershell
+# Windows (PowerShell)
+python -m venv .venv
+.venv\Scripts\Activate.ps1
 pip install streamlit pandas requests
 ```
 
@@ -149,6 +169,8 @@ akshay_enterprise_app/
 
 ## Useful Commands
 
+### macOS / Linux
+
 | Action                        | Command                                          |
 |-------------------------------|--------------------------------------------------|
 | Start backend (detached)      | `cd backend && docker compose up -d`             |
@@ -157,3 +179,18 @@ akshay_enterprise_app/
 | View backend logs             | `cd backend && docker compose logs -f`           |
 | Start frontend                | `cd frontend && streamlit run main.py`           |
 | Reset DB (⚠️ deletes all data) | `cd backend && docker compose down -v`           |
+
+### Windows (PowerShell or Command Prompt)
+
+| Action                        | Command                                                    |
+|-------------------------------|------------------------------------------------------------|
+| Start backend (detached)      | `cd backend; docker compose up -d`                         |
+| Rebuild after code changes    | `cd backend; docker compose up -d --build`                 |
+| Stop backend                  | `cd backend; docker compose down`                          |
+| View backend logs             | `cd backend; docker compose logs -f`                       |
+| Start frontend                | `cd frontend; streamlit run main.py`                       |
+| Reset DB (⚠️ deletes all data) | `cd backend; docker compose down -v`                       |
+
+> **Windows tip:** The `./start_all.sh`, `./stop_all.sh`, and `./restart_all.sh` convenience scripts in `backend/` are Bash scripts. On Windows, run them inside **Git Bash** or **WSL 2**, or use the equivalent `docker compose` commands from the table above directly in PowerShell.
+
+> **Docker CLI version:** Docker Desktop v2+ ships `docker compose` (with a space) as a built-in plugin. If you have an older standalone install that provides `docker-compose` (with a hyphen), both work identically — use whichever is available on your system.

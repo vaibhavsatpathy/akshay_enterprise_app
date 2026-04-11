@@ -251,7 +251,9 @@ with management_tab1:
             with col1:
                 if st.button("🗑️ Delete Order", use_container_width=True):
                     success = delete_record(
-                        "/corrugation/orders-table/delete", order_id
+                        "/corrugation/orders-table/delete",
+                        order_id,
+                        id_param="order_id",
                     )
                     if success:
                         st.success(f"✅ Order {order_id} deleted successfully!")
@@ -374,7 +376,9 @@ with management_tab2:
             col1, col2 = st.columns([1, 3])
             with col1:
                 if st.button("🗑️ Delete Die", use_container_width=True):
-                    success = delete_record("/corrugation/die/delete", die_id)
+                    success = delete_record(
+                        "/corrugation/die/delete", die_id, id_param="die_id"
+                    )
                     if success:
                         st.success(f"✅ Die {die_id} deleted successfully!")
                         if "dies_data" in st.session_state:

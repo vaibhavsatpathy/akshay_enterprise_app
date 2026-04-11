@@ -4,33 +4,48 @@ from datetime import datetime
 
 
 class ProductPlySheetCreate(BaseModel):
-    layer_type_id: Optional[int] = None
-    dimension_id: Optional[int] = None
-    size: Optional[float] = None
+    reel_size: Optional[float] = None
+    cutting_size: Optional[float] = None
+    sheet_size: Optional[float] = None
+    per_sheet_weight_calc: Optional[float] = None
+    gsm_calc: Optional[float] = None
+    per_sheet_weight_act: Optional[float] = None
     number_of_sheets: Optional[int] = None
-    weight: Optional[float] = None
+    variation_in_weight: Optional[float] = None
+    total_weight_calc: Optional[float] = None
+    total_weight_act: Optional[float] = None
     location_id: Optional[int] = None
     inventory_id: Optional[int] = None
 
 
 class ProductPlySheetUpdate(BaseModel):
     sheet_id: int
-    layer_type_id: Optional[int] = None
-    dimension_id: Optional[int] = None
-    size: Optional[float] = None
+    reel_size: Optional[float] = None
+    cutting_size: Optional[float] = None
+    sheet_size: Optional[float] = None
+    per_sheet_weight_calc: Optional[float] = None
+    gsm_calc: Optional[float] = None
+    per_sheet_weight_act: Optional[float] = None
     number_of_sheets: Optional[int] = None
-    weight: Optional[float] = None
+    variation_in_weight: Optional[float] = None
+    total_weight_calc: Optional[float] = None
+    total_weight_act: Optional[float] = None
     location_id: Optional[int] = None
     inventory_id: Optional[int] = None
 
 
 class ProductPlySheetResponse(BaseModel):
     sheet_id: int
-    layer_type_id: Optional[int] = None
-    dimension_id: Optional[int] = None
-    size: Optional[float] = None
+    reel_size: Optional[float] = None
+    cutting_size: Optional[float] = None
+    sheet_size: Optional[float] = None
+    per_sheet_weight_calc: Optional[float] = None
+    gsm_calc: Optional[float] = None
+    per_sheet_weight_act: Optional[float] = None
     number_of_sheets: Optional[int] = None
-    weight: Optional[float] = None
+    variation_in_weight: Optional[float] = None
+    total_weight_calc: Optional[float] = None
+    total_weight_act: Optional[float] = None
     location_id: Optional[int] = None
     inventory_id: Optional[int] = None
     created_at: Optional[datetime] = None
